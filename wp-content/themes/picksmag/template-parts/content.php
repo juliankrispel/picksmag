@@ -32,7 +32,9 @@
   </header><!-- .entry-header -->
 
   <div class="entry-content">
+
 <?php
+
 the_content( sprintf(
   /* translators: %s: Name of current post. */
   wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'picksmag' ), array( 'span' => array( 'class' => array() ) ) ),

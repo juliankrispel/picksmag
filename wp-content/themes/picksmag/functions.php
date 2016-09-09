@@ -87,12 +87,13 @@ add_action( 'after_setup_theme', 'picksmag_setup' );
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @global int $content_width
+ * @global int $content_height
  */
-function picksmag_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'picksmag_content_width', 640 );
+
+function picksmag_content_height() {
+	$GLOBALS['content_height'] = apply_filters( 'picksmag_content_height', 640 );
 }
-add_action( 'after_setup_theme', 'picksmag_content_width', 0 );
+add_action( 'after_setup_theme', 'picksmag_content_height', 0 );
 
 /**
  * Register widget area.
@@ -152,22 +153,21 @@ add_filter( 'rwmb_meta_boxes', 'your_prefix_select_demo' );
 function your_prefix_select_demo( $meta_boxes )
 {
 	$meta_boxes[] = array(
-		'title'  => __( 'Thumbnail Settings', 'thumb_width' ),
+		'title'  => __( 'Thumbnail Settings', 'thumb_height' ),
 		'fields' => array(
 			array(
-				'name'        => __( 'Thumb Width', 'thumb_width' ),
-				'id'          => 'thumb_width',
+				'name'        => __( 'Thumb Height', 'thumb_height' ),
+				'id'          => 'thumb_height',
 				'type'        => 'select_advanced',
 				// Array of 'value' => 'Label' pairs for select box
 				'options'     => array(
-					'one' => __( 'One Column', 'one' ),
-					'two' => __( 'Two columns', 'two' ),
-					'three' => __( 'Three columns', 'three' ),
+					'one' => __( 'One Row', 'one' ),
+					'two' => __( 'Two Rows', 'two' ),
 				),
 				// Select multiple values, optional. Default is false.
 				'multiple'    => false,
 				'std'         => 'one', // Default value, optional
-				'placeholder' => __( 'Select a width', 'thumb_width' ),
+				'placeholder' => __( 'Select a height', 'thumb_height' ),
 			),
 		)
 	);
@@ -183,8 +183,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Shortcodes
  */
 
-function column($column_width, $content, $atts) {
-	$classes = array($column_width);
+function column($column_height, $content, $atts) {
+	$classes = array($column_height);
 	if (isset($atts['background'])) {
 	 array_push($classes, 'bg-' . $atts['background']);
 	}
@@ -217,6 +217,5 @@ add_shortcode( 'section', 'section' );
  */
 
 add_image_size( 'header', 1200, 650, array('center', 'top'));
-add_image_size( 'three-col', 1200, 300, array('center', 'top'));
-add_image_size( 'two-col', 800, 300, array('center', 'top'));
-add_image_size( 'one-col', 400, 300, array('center', 'top'));
+add_image_size( 'two-row', 800, 600, array('center', 'top'));
+add_image_size( 'one-row', 800, 300, array('center', 'top'));

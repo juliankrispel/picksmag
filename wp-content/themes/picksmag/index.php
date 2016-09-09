@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main flex-grid" role="main">
+		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) :
@@ -28,24 +28,38 @@ get_header(); ?>
 			<?php
 			endif;
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+      $left_stack = 0;
+      $right_stack = 0;
+      $index = 0;
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				$thumb_width = get_post_meta(get_the_id(), 'thumb_width', true);
-			?><a 
-					class="thumb <?php echo $thumb_width; ?>"
-					href="<?php echo the_permalink(); ?>">
-			 <?php the_post_thumbnail($thumb_width . '-col'); ?>
-			 <div class="thumb-title">
-				 <h2><?php the_title();?></h2>
-			 </div>
-			</a> <?php
-				
+      /* Start the Loop */
+      while ( have_posts() ) : the_post();
+        $thumb_height = get_post_meta(get_the_id(), 'thumb_height', true);
+        $thumb_class = '';
+
+        // if we're on the right side of the stack
+        if ($left_stack > $right_stack) {
+          $right_stack++;
+          $thumb_class.= ' right';
+          if ($thumb_height == 'two') {
+            $right_stack++;
+          }
+        } else {
+          $left_stack++;
+          if ($thumb_height == 'two') {
+            $left_stack++;
+          }
+        }
+
+      ?><a
+          class="thumb <?php echo $thumb_class; ?>"
+          href="<?php echo the_permalink(); ?>">
+       <?php the_post_thumbnail($thumb_height . '-row'); ?>
+       <div class="thumb-title">
+         <h2><?php the_title();?></h2>
+       </div>
+       </a> <?php
+      $index++;
 			endwhile;
 
 			the_posts_navigation();
