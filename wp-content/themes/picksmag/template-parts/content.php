@@ -19,15 +19,14 @@
       } else {
         the_title( '<h2 class=""><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
       }
-?>
+      if ( 'post' === get_post_type() ) : ?>
+        <div class="post-header__date">
+          <?php picksmag_posted_on(); ?>
+        </div><!-- .entry-meta -->
+      <?php ?>
     </div>
 <?php
 
-      if ( 'post' === get_post_type() ) : ?>
-          <div class="post-header__date">
-            <?php picksmag_posted_on(); ?>
-          </div><!-- .entry-meta -->
-      <?php
     endif; ?>
   </header><!-- .entry-header -->
 

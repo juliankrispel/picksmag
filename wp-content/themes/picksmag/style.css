@@ -146,10 +146,6 @@ a:hover {
   outline: 0;
 }
 
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
 b,
 strong {
   font-weight: bold;
@@ -275,26 +271,6 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-
-legend {
-  border: 0;
-  padding: 0;
-}
-
-textarea {
-  overflow: auto;
-}
-
-optgroup {
-  font-weight: bold;
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -483,120 +459,6 @@ a:focus {
 a:hover,
 a:active {
   outline: 0;
-}
-
-/*--------------------------------------------------------------
-## Menus
---------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: none;
-  float: left;
-  width: 100%;
-}
-
-.main-navigation ul {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-.main-navigation li {
-  float: left;
-  position: relative;
-}
-
-.main-navigation a {
-  display: block;
-  text-decoration: none;
-}
-
-.main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 1.5em;
-  left: -999em;
-  z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-  left: -999em;
-  top: 0;
-}
-
-.main-navigation ul ul a {
-  width: 200px;
-}
-
-.main-navigation ul ul li {
-
-}
-
-.main-navigation li:hover > a,
-.main-navigation li.focus > a {
-}
-
-.main-navigation ul ul :hover > a,
-.main-navigation ul ul .focus > a {
-}
-
-.main-navigation ul ul a:hover,
-.main-navigation ul ul a.focus {
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-  left: 100%;
-}
-
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_ancestor > a,
-.main-navigation .current-menu-ancestor > a {
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-  .main-navigation ul {
-    display: block;
-  }
-}
-
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-  margin: 0 0 1.5em;
-  overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-  float: left;
-  width: 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-  float: right;
-  text-align: right;
-  width: 50%;
 }
 
 /*--------------------------------------------------------------
@@ -860,7 +722,8 @@ body{
   margin: 0;
   font-size: 1.3em;
   font-family: Georgia;
-  background: #000; /* Fallback for when there is no custom background color defined. */
+  background-color: rgba(0,0,0,.9);
+  background-image: url(tex2res5.png);
   color: #f9f9f9;
 }
 
@@ -884,7 +747,6 @@ h1,h2,h3,.h1,.h2,.h3, .site-title, .main-navigation, blockquote{
   line-height: 1.7em;
   flex-wrap: wrap;
   font-size: 1.1em;
-  padding: 0 2em;
   width 100%;
 }
 
@@ -894,7 +756,7 @@ h1,h2,h3,.h1,.h2,.h3, .site-title, .main-navigation, blockquote{
 }
 
 .site-title{
-  font-size: 3em;
+  font-size: 2em;
   padding: 0;
   margin: 0;
   color: #333;
@@ -931,43 +793,13 @@ a{ transition: 1s; }
   flex-wrap: wrap;
 }
 
-.site-header{
-  padding: 1em 2em; 
-}
-
-.site-header img{
-  max-height: 100%;
-}
-
-.entry-header{
-  text-align: center;
-}
-
-.menu li a{
-  padding-right: .5em;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 1.5em;
-  display: inline-block;
-}
-
-.menu li:after{
-  font-weight: bold;
-  margin-right: .5em;
-  font-style: italic;
-  font-size: 1.5em;
-  display: inline-block;
-  content: '/';
-}
-
-.menu li:last-child:after{
-  display: none;
-}
-
 /* Feature thumbs */
 .one{
 	width: calc(100%/3);
+}
+
+.main-navigation{
+  display: none;
 }
 
 .two{
@@ -987,7 +819,8 @@ a{ transition: 1s; }
 }
 
 .bg-black{
-  background: #000;
+  background-color: #000;
+  background-image: url(tex2res5.png);
   color: white;
 }
 
@@ -1002,6 +835,7 @@ a{ transition: 1s; }
 
 .thumb{
   position: relative;
+  border: 1px solid #000;
   width: 50%;
   float: left;
   overflow: hidden;
@@ -1013,7 +847,8 @@ a{ transition: 1s; }
 
 .thumb-title h2{
   padding: .3em .8em;
-  background: #000;
+  background-color: rgba(0,0,0,.7);
+  background-image: url(tex2res5.png);
   display: inline-block;
   text-transform: uppercase;
   font-weight: bold;
@@ -1089,9 +924,18 @@ blockquote{
  * Single Post
  */
 
+.entry-content > p:first-child:first-letter {
+  font-size: 3.0em;
+  float: left;
+  padding: .05em .2em 0px 0px;
+  display: block;
+  line-height: 1.05em;
+  color: white;
+}
+
 .post-header{
   position: relative;
-  margin-bottom: 4em;
+  margin-bottom: 3em;
 }
 
 .post-header h1{
@@ -1103,8 +947,8 @@ blockquote{
 }
 
 .post-header__text{
-  font-size: 1.5em;
   font-weight: bold;
+  padding: 1em;
   position: absolute;
   top: 0;
   left: 0;
@@ -1113,46 +957,38 @@ blockquote{
   clip: rect(0, auto, auto, 0);
 }
 
-.post-header__date, .post-header__title{
-  color: #000;
-  padding: 20px 40px;
-  background: rgba(255,255,255,0.5);
+.post-header__title{
+  padding: 10px 30px;
   display: inline-block;
   font-style: italic;
+  width: auto;
+  color: #f0f0f0;
+  background-color: rgba(0,0,0,.7);
+  background-image: url(tex2res5.png);
   font-weight: bold;
   text-transform: uppercase;
 }
-
-.post-header__title{
-  position: fixed;
-  bottom: 0em;
-  background: rgba(0,0,0,1);
-  color: #fff;
-  left: 0;
-}
-
 
 .post-header img{
   width: 100%;
 }
 
 .post-header__date{
-  position: absolute;
-  left: auto;
   font-size: .8em;
-  bottom: 100%;
-  background: #eee;
-  right: 0;
-  border-left: 10px solid #000;
-  /*border-top: 10px solid #000;*/
+  display: block;
+  width: auto;
+  color: #fff;
+}
+
+.post-header__date .posted-on{
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: rgba(0,0,0,.5);
+  background-image: url(tex2res5.png);
 }
 
 .post-header__title{
   margin: 0;
-}
-
-.post-header__date{
-  right: 0;
 }
 
 .right{
@@ -1165,4 +1001,15 @@ blockquote{
   max-width: 150px;
   z-index: 999;
   right: 20px;
+}
+
+.site-footer{
+  font-family: Roboto;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  border-top: 1px solid #000;
+  background-color: rgba(0,0,0,.4);
+  font-size: 0.9em;
+  padding: 1em 2em;
 }

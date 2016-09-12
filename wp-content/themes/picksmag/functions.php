@@ -149,9 +149,9 @@ require get_template_directory() . '/inc/extras.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-add_filter( 'rwmb_meta_boxes', 'your_prefix_select_demo' );
-function your_prefix_select_demo( $meta_boxes )
-{
+add_filter( 'rwmb_meta_boxes', 'thumbnail_settings' );
+
+function thumbnail_settings( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'title'  => __( 'Thumbnail Settings', 'thumb_height' ),
 		'fields' => array(
@@ -173,6 +173,30 @@ function your_prefix_select_demo( $meta_boxes )
 	);
 	return $meta_boxes;
 }
+
+function post_logo( $meta_boxes ) {
+	$meta_boxes[] = array(
+		'title'  => __( 'Post Logo', 'post_logo' ),
+		'fields' => array(
+			array(
+				'name'        => __( 'Post Logo', 'thumb_height' ),
+				'id'          => 'thumb_height',
+				'type'        => 'select_advanced',
+				// Array of 'value' => 'Label' pairs for select box
+				'options'     => array(
+					'one' => __( 'One Row', 'one' ),
+					'two' => __( 'Two Rows', 'two' ),
+				),
+				// Select multiple values, optional. Default is false.
+				'multiple'    => false,
+				'std'         => 'one', // Default value, optional
+				'placeholder' => __( 'Select a height', 'thumb_height' ),
+			),
+		)
+	);
+	return $meta_boxes;
+}
+
 
 /**
  * Load Jetpack compatibility file.
