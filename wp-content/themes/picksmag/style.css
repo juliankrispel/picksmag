@@ -835,7 +835,6 @@ a{ transition: 1s; }
 
 .thumb{
   position: relative;
-  border: 1px solid #000;
   width: 50%;
   float: left;
   overflow: hidden;
