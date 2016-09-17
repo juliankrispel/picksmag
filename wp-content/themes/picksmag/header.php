@@ -25,6 +25,11 @@
 <div id="page" class="site">
   <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'picksmag' ); ?></a>
 
+  <nav id="site-navigation" class="main-navigation" role="navigation">
+    <a class="grid-link icon-grid-view" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
+    <a class="archive-link icon-list-view" href="<?php echo esc_url( home_url( '/archive' ) ); ?>"></a>
+  </nav><!-- #site-navigation -->
+
   <header id="masthead"role="banner">
     <div>
       <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -32,10 +37,6 @@
       </a>
     </div>
 
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'picksmag' ); ?></button>
-      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-    </nav><!-- #site-navigation -->
   </header><!-- #masthead -->
 
   <div id="content" class="site-content">

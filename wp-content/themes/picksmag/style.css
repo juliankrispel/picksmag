@@ -57,6 +57,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 }
 
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fonts/fontawesome-webfont.eot?v=4.6.3');
+  src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.6.3') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff2?v=4.6.3') format('woff2'), url('fonts/fontawesome-webfont.woff?v=4.6.3') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.6.3') format('truetype'), url('fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Italic */
 @font-face {
   font-family: 'League Gothic';
@@ -798,10 +806,6 @@ a{ transition: 1s; }
 	width: calc(100%/3);
 }
 
-.main-navigation{
-  display: none;
-}
-
 .two{
   width: calc(100%/3*2);
 }
@@ -1021,6 +1025,64 @@ blockquote{
 
 .right{
   float: right;
+}
+
+.main-navigation {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  left: 0;
+  margin: .2em .5em;
+  font-size: 2em;
+}
+
+.main-navigation a{
+  color: #fff !important;
+  margin-right: .3em;
+}
+
+a, a:focus {
+   outline: 0;
+}
+
+.main-navigation a:before{
+  transition: 200ms;
+  opacity: .6;
+  transform: scale(1);
+}
+
+.main-navigation a:hover:before{
+  transform: scale(1.2) !important;
+  opacity: 1;
+}
+
+.page-template-archive .main-navigation .archive-link:before{
+  opacity: 1;
+}
+
+.home .main-navigation .grid-link:before{
+  opacity: 1;
+}
+
+
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-grid-view:before{
+  content: "\f009";
+}
+
+.icon-list-view:before{
+  font-size: 1.1em;
+  content: "\f0c9";
 }
 
 .logo{
