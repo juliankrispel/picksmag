@@ -16,8 +16,10 @@
       <?php
       if ( is_single() ) {
         the_title( '<h1 class="post-header__title">', '</h1>' );
+        ?><h2><?php echo get_nskw_subtitle() ?></h2><?php
       } else {
         the_title( '<h2 class=""><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+        ?><h3><?php echo get_nskw_subtitle() ?></h3><?php
       }
       if ( 'post' === get_post_type() ) : ?>
         <div class="post-header__date">

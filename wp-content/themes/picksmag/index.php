@@ -56,7 +56,10 @@ get_header(); ?>
           href="<?php echo the_permalink(); ?>">
        <?php the_post_thumbnail($thumb_height . '-row'); ?>
        <div class="thumb-title">
-         <h2><?php the_title();?></h2>
+         <div class="thumb-title__content">
+           <h2><?php the_title();?></h2>
+           <h3><?php echo get_nskw_subtitle() ?></h3>
+         </div>
        </div>
        </a> <?php
       $index++;
