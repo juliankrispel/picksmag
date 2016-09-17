@@ -840,6 +840,17 @@ a{ transition: 1s; }
   overflow: hidden;
 }
 
+.archive-thumb{
+  width: 100%;
+  float: none;
+  display: block;
+  margin: 0;
+}
+
+.archive-thumb img{
+  width: 100%;
+}
+
 .thumb img{
   display: block; 
 }

@@ -1,37 +1,29 @@
 <?php
-/**
- * The template for displaying archive pages.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package picksmag
- */
-
+/*
+Template Name: Archives
+*/
 get_header(); ?>
+<?php 
+    $wq = new WP_Query('orderby=date&order=DESC'); // $args are the same as the args for query_posts()
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php
-		if ( have_posts() ) : ?>
+		if ( $wq->have_posts() ) :
+      /* Start the Loop */
+      while ( $wq->have_posts() ) : $wq->the_post();
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+      ?><a class="thumb archive-thumb" href="<?php echo the_permalink(); ?>">
+       <?php the_post_thumbnail('wide'); ?>
+       <div class="thumb-title">
+         <div class="thumb-title__content">
+           <h2><?php the_title();?></h2>
+           <h3><?php echo get_nskw_subtitle() ?></h3>
+         </div>
+       </div>
+       </a> <?php
 
 			endwhile;
 
