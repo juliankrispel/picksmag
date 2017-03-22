@@ -25,18 +25,19 @@
 <div id="page" class="site">
   <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'picksmag' ); ?></a>
 
-  <nav id="site-navigation" class="main-navigation" role="navigation">
-    <a class="grid-link icon-grid-view" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
-    <a class="archive-link icon-list-view" href="<?php echo esc_url( home_url( '/archive' ) ); ?>"></a>
-  </nav><!-- #site-navigation -->
+  <div class="main-navigation">
+    <nav id="site-navigation" role="navigation">
+      <a class="grid-link icon-grid-view" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
+      <a class="archive-link icon-list-view" href="<?php echo esc_url( home_url( '/archive' ) ); ?>"></a>
+    </nav><!-- #site-navigation -->
 
-  <header id="masthead"role="banner">
-    <div>
-      <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-        <img alt="<?php bloginfo( 'name' ); ?>" src="<?php echo get_template_directory_uri(); ?>/logo.png"/>
-      </a>
-    </div>
-
-  </header><!-- #masthead -->
+    <header id="masthead" role="banner">
+      <div>
+        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+          <img alt="<?php bloginfo( 'name' ); ?>" src="<?php echo get_template_directory_uri(); ?>/logo.png"/>
+        </a>
+      </div>
+    </header><!-- #masthead -->
+  </div>
 
   <div id="content" class="site-content">

@@ -15,16 +15,24 @@
     <div class="post-header__text">
       <?php
       if ( is_single() ) {
-        the_title( '<h1 class="post-header__title">', '</h1>' );
-        ?><h2><?php echo get_nskw_subtitle() ?></h2><?php
+        the_title( '<div class="swoop-left inline-block padding bg-dark"><h1 class="post-header__title line-height-normal">', '</h1></div>' );
+        ?>
+          <br />
+          <div class="inline-block padding bg-dark swoop-left-1">
+            <h2 class="line-height-normal no-margin"><?php echo get_nskw_subtitle() ?></h2>
+          </div>
+<?php
       } else {
         the_title( '<h2 class=""><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
         ?><h3><?php echo get_nskw_subtitle() ?></h3><?php
       }
-      if ( 'post' === get_post_type() ) : ?>
-        <div class="post-header__date">
-          <?php picksmag_posted_on(); ?>
-        </div><!-- .entry-meta -->
+        if ( 'post' === get_post_type() ) : ?>
+        <br />
+        <div class="inline-block padding bg-dark swoop-left-2">
+          <div class="post-header__date line-height-normal">
+            <?php picksmag_posted_on(); ?>
+          </div><!-- .entry-meta -->
+        </div>
       <?php ?>
     </div>
 <?php
