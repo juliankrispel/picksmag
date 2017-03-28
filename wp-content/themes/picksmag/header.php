@@ -24,20 +24,27 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
   <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'picksmag' ); ?></a>
-
-  <div class="main-navigation">
-    <nav id="site-navigation" role="navigation">
-      <a class="grid-link icon-grid-view" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
-      <a class="archive-link icon-list-view" href="<?php echo esc_url( home_url( '/archive' ) ); ?>"></a>
-    </nav><!-- #site-navigation -->
-
+  <div class="main-navigation bg-dark">
     <header id="masthead" role="banner">
-      <div>
-        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-          <img alt="<?php bloginfo( 'name' ); ?>" src="<?php echo get_template_directory_uri(); ?>/logo.png"/>
+      <nav class="text-center flex flex-column full-height absolute" id="site-navigation" role="navigation">
+        <a class="nav-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+          <img class="full-width" alt="<?php bloginfo( 'name' ); ?>" src="<?php echo get_template_directory_uri(); ?>/logo.svg"/>
         </a>
-      </div>
+        <span class="nav-divider"></span>
+        <a class="nav-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+          <img src="<?php echo get_template_directory_uri(); ?>/grid-view.png" alt="Grid View Icon"/>
+        </a>
+        <a class="nav-link" href="<?php echo esc_url( home_url( '/archive' ) ); ?>">
+          <img src="<?php echo get_template_directory_uri(); ?>/list-view.png" alt="List View Icon"/>
+        </a>
+        <span class="nav-divider"></span>
+        <a class="nav-link" href=""><em class="text-white fa fa-instagram"></em></a>
+        <a class="nav-link" href=""><em class="text-white fa fa-twitter"></em></a>
+        <a class="nav-link" href=""><em class="text-white fa fa-facebook"></em></a>
+        <a class="nav-link" href=""><em class="text-white fa fa-paypal"></em></a>
+      </nav><!-- #site-navigation -->
     </header><!-- #masthead -->
+
   </div>
 
   <div id="content" class="site-content">
