@@ -241,6 +241,6 @@ add_shortcode( 'section', 'section' );
  */
 
 add_image_size( 'header', 1200, 650, array('center', 'top'));
-add_image_size( 'two-row', 800, 600, array('center', 'top'));
-add_image_size( 'one-row', 800, 300, array('center', 'top'));
+add_image_size( 'two-row', 800, 600, array('center', 'top', true));
+add_image_size( 'one-row', 800, 300, array('center', 'top', true));
 add_image_size( 'wide', 1000, 250, array('center', 'top'));
