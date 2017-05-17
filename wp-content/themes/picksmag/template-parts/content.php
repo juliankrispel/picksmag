@@ -7,12 +7,20 @@
  * @package picksmag
  */
 
+  $header_video = get_post_meta(get_the_id(), 'header_video', true);
 ?>
+
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <header class="post-header">
     <div class="fade-in">
-      <?php the_post_thumbnail('header'); ?>
+      <?php
+        if (trim($header_video) != '') {
+          echo wp_oembed_get($header_video);
+        } else {
+          the_post_thumbnail('header');
+        }
+      ?>
     </div>
     <div class="post-header__text">
       <div>

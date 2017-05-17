@@ -979,6 +979,7 @@ blockquote{
   font-weight: bold;
   position: absolute;
   top: 0;
+  pointer-events: none;
   left: 0;
   width: 100%;
   clip: rect(0, auto, auto, 0);
@@ -1013,6 +1014,11 @@ blockquote{
 
 .post-header__title{
   margin: 0;
+}
+
+.post-header iframe{
+  width: 100%;
+  height: 100vh;
 }
 
 .border-bottom-white{
