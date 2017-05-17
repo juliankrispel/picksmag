@@ -117,7 +117,7 @@ add_action( 'widgets_init', 'picksmag_widgets_init' );
  * Enqueue scripts and styles.
  */
 function picksmag_scripts() {
-	wp_enqueue_style( 'picksmag-style', get_stylesheet_uri(), array(), '1.1.1', 'all' );
+	wp_enqueue_style( 'picksmag-style', get_stylesheet_uri(), array(), '1.1.2', 'all' );
 
 	wp_enqueue_script( 'picksmag-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
