@@ -11,14 +11,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <header class="post-header">
-    <?php the_post_thumbnail('header'); ?>
+    <div class="fade-in">
+      <?php the_post_thumbnail('header'); ?>
+    </div>
     <div class="post-header__text">
       <div>
         <?php
         if ( is_single() ) {
-          the_title( '<div class="margin-left-huge"><div class="swoop-left inline-block padding-small padding-left bg-dark"><h1 class="font-size-normal post-header__title line-height-normal">', '</h1></div></div>' );
+          the_title( '<div><div class="swoop-left inline-block padding-small padding-left bg-dark"><h1 class="font-size-normal post-header__title line-height-normal">', '</h1></div></div>' );
           ?>
-            <div class="margin-left-huge">
+            <div>
               <div class="inline-block padding bg-dark swoop-left-1">
                 <h2 class="line-height-normal no-margin"><?php echo get_nskw_subtitle() ?></h2>
               </div>
@@ -29,7 +31,7 @@
           ?><h3><?php echo get_nskw_subtitle() ?></h3><?php
         }
           if ( 'post' === get_post_type() ) : ?>
-          <div class="margin-left-huge">
+          <div>
             <div class="margin-left-small margin-top-small">
               <div class="inline-block padding-small bg-dark swoop-left-2">
                 <div class="post-header__date line-height-normal">

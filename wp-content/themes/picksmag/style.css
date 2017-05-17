@@ -731,6 +731,7 @@ body{
   font-family: Georgia;
   background-color: rgba(0,0,0,.9);
   color: #f9f9f9;
+  padding-left: 50px;
 }
 
 body:before{
@@ -3478,8 +3479,25 @@ a, a:focus {
   100% { opacity: 0; }
 }
 
+@-webkit-keyframes fade-in {
+  0%   {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
 
 .text-white{ color: #fff; }
+
+.fade-in{
+  animation: hide 500ms, fade-in 2s;
+  -webkit-animation-delay: 0s, 500ms;
+}
 
 .swoop-left{
   animation: swoop-left 1s;

@@ -215,6 +215,10 @@ function column($column_height, $content, $atts) {
 	return '<div class="' . join(' ', $classes) . '">' . $content . '</div>';
 }
 
+function half( $atts, $content ){
+	return column('half', do_shortcode($content), $atts);
+}
+
 function three( $atts, $content ){
 	return column('three', do_shortcode($content), $atts);
 }
@@ -232,6 +236,7 @@ function section( $atts, $content ){
 }
 
 add_shortcode( 'three', 'three' );
+add_shortcode( 'half', 'half' );
 add_shortcode( 'one', 'one' );
 add_shortcode( 'two', 'two' );
 add_shortcode( 'section', 'section' );
